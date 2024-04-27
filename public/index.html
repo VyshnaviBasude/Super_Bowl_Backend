@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vyshnavi </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- <link rel="stylesheet" href="stylecss.css"> -->
+          <style>
+            *{
+              margin: 0;
+              padding: 0;
+            }
+            
+            body {
+              font-family: 'Arial', sans-serif;
+            }
+            .nav-border {
+              border: 1px solid #c5b3d4; 
+              background-color: #c5b3d4;
+              width: 100%;
+              border-radius: 10px; 
+              box-sizing: border-box;
+              display: grid;
+              padding: 10px 20px;
+            }
+            
+            .navbar {
+              background-color: #c5b3d4; 
+              width: 100%; 
+            }
+            
+            .navbar-container {
+              display: grid;
+              grid-template-columns: auto 1fr;
+              align-items: center;
+              width: 100%; 
+            }
+            
+            .logo {
+              
+              color: white;
+            }
+            .hamburger{
+              display:none;
+              font-size:30px;
+              cursor:pointer;
+            }
+            .nav-menu {
+              display: grid; 
+              grid-auto-flow: column; 
+              justify-content: end; 
+              list-style-type: none; 
+              margin: 0; 
+              padding: 0; 
+            }
+            
+            .nav-item {
+              padding: 10px 20px;
+              margin-right: -4px; 
+              text-decoration: none;
+              transition: background-color 0.3s;
+            }
+            
+            .nav-item a {
+              color: #333;
+              text-decoration: none; 
+            }
+            
+            .nav-item:hover {
+              background-color: rgb(243, 242, 180); 
+            }
+            @media (max-width: 500px) {
+              .nav-border {
+                  grid-template-columns: 1fr; 
+              }
+            
+              .nav-menu {
+                  display:none;
+                  grid-auto-flow: row; 
+                  justify-content: center; 
+              }
+            
+              .nav-item {
+                  padding: 5px 10px; 
+              }
+              .hamburger{
+                display:block;
+                cursor:pointer;
+                border:none;
+                background-color: #c5b3d4;
+                margin-left: 100px;
+              }
+              .hamburger .bar
+              {
+                display:block;
+                width:25px;
+                height:3px;
+                margin:5px auto;
+                transition: all 0.3s ease-in-out;
+                background-color:#333;
+              }
+              .nav-menu.active{
+                display:block;
+              }
+            }
+            
+            .about-me-container {
+              margin-top: 10px;
+              padding: 20px;
+              text-align: center;
+              border: 2px solid #d1b4ea;
+              border-radius: 10px;
+              margin-bottom: 20px;
+              background-color: #c5b3d4;
+              display: grid; 
+              grid-template-rows: auto 1fr;
+              gap: 10px; 
+            }
+            
+            .about-me-heading {
+              color: #333;
+              font-size: 1.5em;
+              border-left: 4px solid #8a2be2;
+              padding-left: 8px;
+              margin-bottom: 20px;
+              display: flex;
+              justify-content: left;
+            }
+            
+            .about-me-content {
+              display: grid; 
+              grid-template-columns: 0.5fr 1fr; 
+              gap: 30px;
+              align-items: center; 
+              background-color: #f8f8f8;
+              border-radius: 10px;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              padding: 20px; 
+            }
+            
+            .about-me-image, .about-me-text {
+              
+              display: block; 
+            }
+            
+            .about-me-image img {
+              width: 100%;
+              height: auto; 
+              border-radius: 10px;
+              max-width: 275px;
+              margin: 0 auto; 
+            }
+            
+            .about-me-text {
+             
+              text-align: left;
+              font-size: 16px;
+            }
+            
+            .about-me-text h4, .about-me-text p {
+              margin: 10px 0; 
+              color: #666;
+              line-height: 1.6;
+            }
+            
+            /* Responsive Design for Smaller Screens */
+            @media (max-width: 500px) {
+              .about-me-content {
+                grid-template-columns: 1fr; 
+              }
+            }
+            
+            
+            .education-section {
+              color: #666;
+              background-color: #c5b3d4;
+              padding: 20px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              border: 2px solid #d1b4ea;
+              border-radius: 10px; 
+              margin-bottom:20px;
+              
+            }
+            .education-title {
+              color: #333;
+              font-size: 1.5em;
+              border-left: 4px solid #8a2be2;
+              padding-left: 8px;
+              margin-bottom: 20px;
+            }
+            .education-content {
+              display: grid;
+              grid-template-columns: 1fr 1fr; 
+                gap: 30px;
+              justify-content: space-between;
+            }
+            .education-block {
+              width: 83%;
+              border-radius: 10px;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+              margin-bottom: 20px;
+              padding: 15px;
+              background: #f9f9f9;
+              
+            }
+            .education-header {
+              font-size: 1.2em;
+              font-weight: bold;
+              color: #333;
+            }
+            .education-date {
+              text-align: right;
+              font-style: italic;
+              color: #666;
+            }
+            .education-degree, .education-cgpa, .education-courses {
+              margin: 10px 0;
+            }
+            
+            /* Additional Responsiveness for Smaller Screens */
+            @media (max-width: 500px) {
+              .education-content {
+                  grid-template-columns: 1fr; 
+              }
+            }
+            .projects-section {
+              display: grid; 
+              place-items: center; 
+              min-height: 500px;
+              color: #666;
+              background-color: #c5b3d4;
+              margin-bottom: 10px;
+              margin: auto;
+              padding: 20px;
+              border: 2px solid #d1b4ea;
+              border-radius: 10px;
+              grid-template-rows: auto 1fr;
+              gap: 20px; 
+            }
+            
+            .projects-title {
+              color: #333;
+              font-size: 1.5em;
+              border-left: 4px solid #8a2be2;
+              padding-left: 8px;
+              margin-bottom: 10px; 
+              align-self: start; 
+              width: 100%;
+            }
+            
+            .projects-grid {
+              display: grid; 
+              grid-template-columns: repeat(auto-fill, minmax(40%, 1fr)); 
+              gap: 20px;
+              width: 100%; 
+              align-items: start;
+              
+            }
+            
+            .project-card {
+              background-color: #fff;
+              padding: 20px;
+              border-radius: 10px;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+              width:80%;
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 20px; 
+              flex: 0 0 45%;
+              align-items: center; 
+              min-height:400px;
+            }
+            
+            .project-image {
+              width: 70%; 
+              text-align:center;
+              margin-left:10px;
+              margin-bottom: 20px;
+              border-radius: 10px;
+            }
+            
+            .project-card h3 {
+              margin: 10px 0;
+            }
+            .project-description {
+              margin: 10px 0;
+            }
+            
+            @media (max-width: 500px) {
+              .projects-grid {
+                  grid-template-columns: 1fr;
+              }
+            }
+            .experience-section {
+              display: grid; 
+              grid-template-columns: 1fr; 
+              gap: 20px; 
+              color: #666;
+              margin: auto;
+              background-color: #c5b3d4;
+              padding: 20px;
+              margin-top: 20px;
+              margin-bottom: 20px;
+              border: 2px solid #d1b4ea;
+              border-radius: 10px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+            
+            .experience-title {
+              color: #333;
+              font-size: 1.5em;
+              border-left: 4px solid #8a2be2;
+              padding-left: 8px;
+             
+            }
+            
+            .experience-entry {
+              border-top: 2px solid #ccc;
+              padding-top: 20px;
+            }
+            
+            .experience-header {
+              display: flex; 
+              justify-content: space-between; 
+              align-items: baseline; 
+              margin-bottom: 10px; 
+            }
+            
+            .role, .company-name, .date-range {
+              font-weight: bold;
+              color: #333;
+              margin-bottom: 10px; 
+            }
+            
+            /* Responsive adjustments */
+            @media (max-width: 500px) {
+              .experience-entry {
+                  grid-template-columns: 1fr; 
+              }
+            }
+            .blog-container {
+              display: grid; 
+              grid-template-columns: 1fr; 
+              color: #666;
+              background-color: #fff;
+              border: 2px solid #d1b4ea;
+              border-radius: 10px;
+              padding: 20px;
+              margin-bottom: 20px;
+            }
+            
+            .blog-title {
+              color: #333;
+              font-size: 1.5em;
+              border-left: 4px solid #8a2be2;
+              padding-left: 8px;
+              margin-bottom:10px;
+            }
+            
+            .blog-container h1, .blog-container h2 {
+              color: #5D5C61;
+            }
+            
+            .blog-container ul {
+              list-style: inside square;
+              padding-left: 20px;
+            }
+            
+            .blog-container li {
+              margin-bottom: 10px;
+            }
+            
+            .blog-container p {
+              text-align: justify;
+              margin-bottom: 20px;
+            }
+            .contact-container {
+              display: grid; 
+              grid-template-columns: 1fr auto; 
+              gap: 20px;
+              color: #666;
+              border: 2px solid #d1b4ea;
+              border-radius: 10px;
+              background-color: #c5b3d4;
+              align-items: center;
+              padding: 20px;
+              margin-bottom:20px;
+            }
+            
+            .contact-title {
+              grid-column: 1 / -1; 
+              color: #333;
+              font-size: 1.5em;
+              border-left: 4px solid #8a2be2;
+              padding-left: 8px;
+              margin-bottom: 20px; 
+            }
+            
+            .contact-info p {
+              margin: 0;
+              color: #333;
+              font-size: 16px;
+            }
+            
+            .social-icon {
+              padding:5px;
+              margin-bottom :20px;
+            }
+            
+            .social-icon img {
+              width: 50px; 
+              height: 50px; 
+              margin: 0; 
+            }
+            
+            @media (max-width: 500px) {
+              .contact-container {
+                  grid-template-rows: 1fr; 
+              }
+              .social-icon img {
+                width: 20px; 
+                height: 20px; 
+                margin: 0; 
+              }
+            }
+            
+          </style>
+</head>
+<body>
+ 
+    <header>
+        <div class="nav-border">
+        <nav class="navbar">
+    <div class="navbar-container">
+        
+        <div class="logo">
+           <h2>MY PORTFOLIO</h2>
+        </div>
+        <button class="hamburger" onClick ="onClickMenu()">
+          <div class ="bar"></div>
+          <div class ="bar"></div>
+          <div class ="bar"></div>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-item"><a style="text-decoration: none; margin: 5px;" href="#aboutMe"><span ></span><i class="fa fa-id-badge" aria-hidden="true"></i></span>About Me</a></li>
+                        <li class="nav-item"><a style="text-decoration: none" href="#education"> <span> <i class="fa fa-university" aria-hidden="true"></i> </span> Education</a></li>
+                        <li class="nav-item"> <a style="text-decoration: none" href="#experience"><span> <i class="fa fa-briefcase" aria-hidden="true"></i> </span> Experience</a></li>
+                        <li class="nav-item"> <a style="text-decoration: none" href="#blog"><span> <i class="fa fa-laptop" aria-hidden="true"></i> </span> Blog</a></li>
+                        <li class="nav-item"><a style="text-decoration: none" href="#projects"> <span> <i class="fa fa-tasks" aria-hidden="true"></i> </span> Projects</a></li>
+                        <li class="nav-item"><a style="text-decoration: none" href="#contact"> <span> <i class="fa fa-phone-square" aria-hidden="true"></i> </span> Contact </a></li>
+        </ul>
+    </div>
+</nav>
+</div>
+
+    </header>
+ <section id="aboutMe">
+    
+    <div class="about-me-container">
+        <div class="about-me-heading">About Me</div>
+        <div class="about-me-content">
+          <div class="about-me-image">
+            <img src="./images/IMG_7044.jpg" alt="Your Image">
+          </div>
+          <div class="about-me-text">
+            <h3>Vyshnavi Basude</h3>
+            <h4>Ms in Computer Science</h4>
+            <p>
+                I'm currently pursuing my Master's degree in Computer Science, a journey that has been significantly enriched by my professional stint at Accenture as a Salesforce Developer. This role not only honed my technical skills but also ignited a fervent passion for Web development. The experience deeply influenced my career aspirations, steering me towards a desire to specialize in Front End Development. This field fascinates me with its unique blend of creativity and technology, offering the chance to craft engaging user experiences. My background in software development and academic grounding in computer science form a solid foundation for this next step in my career path.             
+                </p>
+          </div>
+        </div>
+      </div>
+      
+
+</section>
+
+    <section id="education">
+        <div class="education-section">
+            <div class="education-title">Education</div>
+            <div class="education-content">
+              <!-- Education Block 1 -->
+              <div class="education-block">
+                <div class="education-header">University of New Haven</div>
+                <div class="education-degree">MS in Computer Science</div>
+                <div class="education-cgpa">CGPA: 3.75/4</div>
+                <div class="education-courses">Related Courses: Database Systems, AI, Java, Python, Bigdata and Cloud Computing, Web database development, Data Mining</div>
+                <div class="education-date">Aug 2022 - May 2024</div>
+              </div>
+              <!-- Education Block 2 -->
+              <div class="education-block">
+                <div class="education-header">Gokaraju Rangaraju Institute of Engineering and Technology (GRIET)</div>
+                <div class="education-degree">B TECH (Electronics and Communication Engineering)</div>
+                <div class="education-cgpa">CGPA: 9.3/10</div>
+                <div class="education-courses">Related Courses: Datastructures, AI, Java, Python, Wireless Communication, C/C++</div>
+                <div class="education-date">July 2017 - July 2021</div>
+              </div>
+            </div>
+          </div>
+          
+          
+    </section>
+
+    <section id="projects" class="">
+        <div class="projects-section">
+            <div class="projects-title">
+              <h3>Projects</h3>
+            </div>
+            <div class="projects-grid">
+              <!-- Project 1 -->
+              <div class="project-card">
+                <img src="./images/project1_img.jpeg" alt="Object Detection using Deep Learning" class="project-image">
+                <h3>Object Detection using Deep Learning</h3>
+                <p>Used Deep neural networks for object detection yield by far the quickest and most accurate results for single and multiple object detection since CNNs are capable of automated learning with less manual engineering involved.</p>
+                <P>Technique that focuses on identifying and labeling objects within images, videos, and even live footage., Had a great understanding on Image classification, Segmentation, Object Localization .</P>
+              </div>
+              <!-- Project 2 -->
+              <div class="project-card">
+                <img src="./images/project2_img.jpeg" alt="Uber Analytics using Machine Learning Algorithms" class="project-image">
+                <h3>Uber Analytics using Machine Learning Algorithms</h3>
+                <p>Machine learning algorithms power Uber's dynamic pricing strategy by processing historical ride data, weather forecasts, traffic conditions. These algorithms predict when and where demand for rides will increase, allowing Uber to allocate more drivers to high demand areas and optimize pricing accordingly.</p>
+              </div>
+              
+            </div>
+          </div>
+          
+          
+          
+    </section>
+
+    <section id="experience">
+        <div class="experience-section">
+            <div class="experience-title">Experience</div>
+            
+            <div class="experience-entry">
+              <div class="experience-header">
+                <div class="company-name">Company: Accenture</div>
+                <div class="date-range">July 2021 - Aug 2022</div>
+              </div>
+              <div class="role">Role: Salesforce Developer</div>
+                <h4 class="role">Responsibilities:</h4>
+              <li class="experience-description">
+                In this role, I specialized in designing and developing responsive designs, software products, and systems tailored to meet specific business requirements, including networking and compliance considerations. This encompassed creating comprehensive implementation and integration approaches for applications and their components, ensuring seamless deployment aligned with production release schedules.
+              </li>
+              <li class="experience-description">
+I also played a critical role in providing primary support and worked with cross functional teams for innovative ideas and application releases, swiftly addressing defects and performance issues     within defined Service Level Agreements.
+Contributed to a collaborative environment, cultured collaboration with team and effective communication skills and Leadership skills.
+              </li>
+              
+                <h4 class="role">Lightning Web Components</h4>
+                <li>
+                    I led the development of Lightning Web Components (LWC) and server-side controllers to meet diverse business requirements. This involved crafting components that enhanced user experiences and streamlined processes.
+                </li>
+            </div>
+          </div>
+          
+    </section>
+
+    <section id="blog">
+        <div class="blog-container">
+            <div class ="blog-title" >Blog</div>
+            <h3>Welcome to My Travel Blog</h3>
+            <p>Embark with me on an amazing journey through the winding roads of distant lands and the crowded alleys of vibrant cities. My blog is a personal diary, a collection of moments and memories etched into the canvas of the world.</p>
+            
+            <h3>Here, you'll find:</h3>
+            <ul>
+                <li>Stories of sunsets and sunrises viewed from mountaintops and ocean shores.</li>
+                <li>Chronicles of unexpected friendships and lessons learned from local wisdom.</li>
+                <li>Reviews of hidden retreats, eclectic street food, and cultural festivities.</li>
+                <li>Reflections on the transformative power of travel on the soul and the senses.</li>
+                <li>Practical advice born from the mishaps and serendipities of nomadic life.</li>
+            </ul>
+            
+            <p>Through words and images, I wish not just to show you the world, but to bring you along with me in the emotional tapestry of discovery. So, let's wander together through tales of adventure, where every path leads to self-discovery and every destination feels like home.</p>
+            
+            <p>Safe travels,<br>
+            Vyshnavi Basude</p>
+        </div>
+        
+          
+    </section>
+
+    <footer id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+              <h2 class="contact-title" >Contact Me</h1>
+              <p>Phone No: **********</p>
+              <p>Email: ********@gmail.com</p>
+            </div>
+            <div class="social-icons">
+              <a href="https://www.linkedin.com/in/vyshnavi-basude-068724193/" class="social-icon"><img src="./images/linkedin_icon.png" alt="LinkedIn"></a>
+              <a href="mailto:vbasu1@unh.newhaven.edu" class="social-icon"><img src="./images/mailto_icon.png" alt="MailTo"></a>
+              <a href="https://www.instagram.com/v_y_s_h_n_a_v_ib/" class="social-icon"><img src="./images/instagram_icon.jpeg" alt="Instagram"></a>
+              <a href="https://github.com/VyshnaviBasude" class="social-icon"><img src="./images/github_icon.png" alt="GitHub"></a>
+            </div>
+          </div>         
+    </footer>
+    <script >
+    function onClickMenu()
+     {
+    var menus= document.getElementsByClassName("nav-menu");
+    if(menus.length >0)
+    {
+        var menu=menus[0]
+        menu.classList.toggle(('active'))
+    }
+     }
+    </script>
+</body>
+</html>

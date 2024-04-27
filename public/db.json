@@ -1,0 +1,77 @@
+{
+    "superBowlWinners": [
+      {
+        "id":1,
+        "year": 2023,
+        "winningTeam": "Kansas City Chiefs",
+        "superBowlMVP": "Patrick Mahomes",
+        "conference": "AFC",
+        "touchdowns": 3,
+        "wonSuperBowlBefore": false,
+        "location": "Glendale, Arizona",
+        "averageAttendance": 70000,
+        "championships": 3
+      },
+      {
+        "id":2,
+        "year": 2022,
+        "winningTeam": "Los Angeles Rams",
+        "superBowlMVP": "Cooper Kupp",
+        "conference": "NFC",
+        "touchdowns": 4,
+        "wonSuperBowlBefore": true,
+        "location": "SoFi Stadium, Inglewood, California",
+        "averageAttendance": 68000,
+        "championships": 2
+      },
+      {
+        "id":3,
+        "year": 2021,
+        "winningTeam": "Tampa Bay Buccaneers",
+        "superBowlMVP": "Tom Brady",
+        "conference": "NFC",
+        "touchdowns": 4,
+        "wonSuperBowlBefore": true,
+        "location": "Tampa, Florida",
+        "averageAttendance": 62000,
+        "championships": 2
+      },
+      {
+        "id":4,
+        "year": 2020,
+        "winningTeam": "Kansas City Chiefs",
+        "superBowlMVP": "Patrick Mahomes",
+        "conference": "AFC",
+        "touchdowns": 2,
+        "wonSuperBowlBefore": false,
+        "location": "Miami Gardens, Florida",
+        "averageAttendance": 65000,
+        "championships": 3
+      },
+      {
+        "id":5,
+        "year": 2019,
+        "winningTeam": "New England Patriots",
+        "superBowlMVP": "Julian Edelman",
+        "conference": "AFC",
+        "touchdowns": 1,
+        "wonSuperBowlBefore": true,
+        "location": "Atlanta, Georgia",
+        "averageAttendance": 68000,
+        "championships": 6
+      },
+      {
+        "id":6,
+        "year": 2018,
+        "winningTeam": "Philadelphia Eagles",
+        "superBowlMVP": "Nick Foles",
+        "conference": "NFC",
+        "touchdowns": 3,
+        "wonSuperBowlBefore": false,
+        "location": "Minneapolis, Minnesota",
+        "averageAttendance": 67000,
+        "championships": 4
+      }
+    ]
+  }
+  
